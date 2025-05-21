@@ -1,0 +1,20 @@
+---
+    
+- name: Install Docker on Ubuntu
+  hosts: webservers
+  become: yes
+
+
+- tasks:
+  - name: installing Docker
+    apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+  - name: pulling the docker image
+    shell : docker pull ranjit/mywebapp:01
+    
+  - name : Running the docker image
+    shell :  docker run -d --name "mywebapp" -p 3000:8000 ranjit/mywebapp:01
+   
+    
