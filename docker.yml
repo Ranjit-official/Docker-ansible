@@ -1,11 +1,10 @@
----
-    
+--- 
 - name: Install Docker on Ubuntu
   hosts: webservers
   become: yes
 
 
-- tasks:
+  tasks:
   - name: installing Docker
     apt:
         name: docker.io
