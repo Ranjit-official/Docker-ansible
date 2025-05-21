@@ -25,9 +25,9 @@ jobs:
 
       - name: Saving the ssh key
         run: |
-          echo ${{secrets.SSH_KEY}} >> kali
+          echo "${{secrets.SSH_KEY}}" > kali
           chmod  600 kali
-      
-      - name : Running the ansible
-        run : |
-          ansible-playbook -i hosts.ini docker.yml 
+
+      - name: Running the ansible
+        run: |
+          ansible-playbook -i hosts.ini docker.yml
